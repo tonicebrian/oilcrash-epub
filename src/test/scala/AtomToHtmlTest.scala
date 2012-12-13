@@ -1,5 +1,8 @@
+package com.cebrian
+
 import org.scalatest.matchers.ShouldMatchers
 import org.scalatest.Suite
+
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,6 +14,8 @@ import org.scalatest.Suite
 class AtomToHtmlTest extends Suite with ShouldMatchers {
 
   def testEndToEnd(){
-    1 should be (1)
+    val runner = new AtomToHtml
+    val res = runner.run("src/test/scala/oilcrash-pretty.xml")
+    res should be (25)
   }
 }

@@ -1,3 +1,6 @@
+package com.cebrian
+import scala.xml._
+
 /**
  * Created with IntelliJ IDEA.
  * User: tcebrian
@@ -12,7 +15,8 @@ object AtomToHtml {
 }
 
 class AtomToHtml {
-  def run(filename:String){
-
+  def run(filename:String) = {
+    val blog = XML.load(filename) \\ "entry" \\ "content"
+    blog.length
   }
 }
