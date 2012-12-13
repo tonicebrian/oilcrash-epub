@@ -19,4 +19,5 @@ class AtomToHtml {
     val blog = XML.load(filename) \\ "entry" \\ "content"
     blog.length
   }
+
 }
