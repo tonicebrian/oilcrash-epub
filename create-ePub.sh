@@ -13,7 +13,10 @@ perl -pi -e "s/&nbsp;/ /g" oilcrash.xhtml
 perl -pi -e "s/<\/span>//g" oilcrash.xhtml
 perl -pi -e "s/<span[^>]*>//g" oilcrash.xhtml
 tidy -utf8 -asxhtml -m oilcrash.xhtml
-ebook-convert oilcrash.xhtml oilcrash.epub
+
+python ../image_downloader.py oilcrash.xhtml 
+
+ebook-convert oilcrash-final.xhtml oilcrash.epub
 
 cp oilcrash.epub ..
 cd -
