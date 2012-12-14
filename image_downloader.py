@@ -7,16 +7,19 @@ import urllib2
 def downloadImages(page):
     i=1
     for img in page.findAll('img'):
-        imgUrl = img['src']
-        imgRemote = urllib2.urlopen(imgUrl)
-        headers = imgRemote.headers
-        ext = headers.getsubtype()
-        filename = "%010d.%s" % (i,ext)
-        print("Downloading "+imgUrl)
-        imgFd = open(filename,'w')
-        imgFd.write(imgRemote.read())
-        imgFd.close()
-        img['src'] = filename
+        try:
+            imgUrl = img['src']
+            imgRemote = urllib2.urlopen(imgUrl)
+            headers = imgRemote.headers
+            ext = headers.getsubtype()
+            filename = "%010d.%s" % (i,ext)
+            print("Downloading "+imgUrl)
+            imgFd = open(filename,'w')
+            imgFd.write(imgRemote.read())
+            imgFd.close()
+            img['src'] = filename
+        except Exception:
+            print "Error retrieving "+imgUrl
         i=i+1
 
 def changeInternalLinks(page):
