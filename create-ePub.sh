@@ -1,7 +1,5 @@
 #!/bin/bash
 
-SAXON_PATH=/home/tcebrian/software/saxon9he.jar
-
 mkdir -p target
 cd target
 wget http://crashoil.blogspot.com/feeds/posts/default?max-results=300 -O oilcrash-raw.xml
@@ -24,7 +22,6 @@ python ../image_downloader.py oilcrash.xhtml
 
 # Componer el eBook
 wget http://altermon.files.wordpress.com/2012/11/crude1.jpg
-cp ../Portada.xhtml .
 LANG=C ebook-convert oilcrash-final.xhtml oilcrash.epub --authors "Antonio Turiel" --language es --title "The Oil Crash blog" --cover crude1.jpg
 
 cp oilcrash.epub ..
