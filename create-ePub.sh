@@ -1,5 +1,6 @@
 #!/bin/bash
 
+rm -rf ./target
 mkdir -p target
 cd target
 

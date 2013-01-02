@@ -9,7 +9,7 @@ Usage
 Install the following packages:
 `sudo apt-get install tidy wget xsltproc python-beautifulsoup`
 
-and the latest version of `calibre` 
+and the latest version of `calibre` as explained in this [link](http://calibre-ebook.com/download_linux)
 
 Execute:
 
