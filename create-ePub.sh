@@ -2,8 +2,12 @@
 
 mkdir -p target
 cd target
-wget http://crashoil.blogspot.com/feeds/posts/default?max-results=300 -O oilcrash-raw.xml
-#wget http://crashoil.blogspot.com/feeds/posts/default -O oilcrash-raw.xml
+
+# Uncomment one of the wget. The first one is for the whole blog and the second one 
+# downloads posts from a given year.
+#wget http://crashoil.blogspot.com/feeds/posts/default?max-results=300 -O oilcrash-raw.xml
+wget "http://crashoil.blogspot.com/feeds/posts/default?published-min=2012-01-01T00:00:00&published-max=2012-12-31T23:59:59" -O oilcrash-raw.xml
+
 xsltproc ../atom-to-html.xsl oilcrash-raw.xml > oilcrash.xhtml
 perl -pi -e "s/&lt;/</g" oilcrash.xhtml
 perl -pi -e "s/&gt;/>/g" oilcrash.xhtml
